@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h2>Személyek <small>Rendszerben szereplők adatai</small></h2>
+        <ol class="breadcrumb">
+            <li class="active"><a href="#"><i class="fa fa-home"></i> Főoldal</a></li>
+            <li><i class="fa fa-user"></i> Személyek</li>
+        </ol>
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Welcome to SB Admin by <a class="alert-link" href="http://startbootstrap.com">Start Bootstrap</a>! Feel free to use this template for your admin needs! We are using a few different plugins to handle the dynamic tables and charts, so make sure you check out the necessary documentation links provided.
+        </div>
+    </div>
+</div><!-- /.row -->
+
+<div class="row">
+    <div class="col-lg-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Személyek listája</h3>
+        </div>
+        <div class="panel-body">
+            <div class="col-lg-12">
+                <h5>Keresés a találatok között:</h5>
+                <input type="text" ng-model="search" ng-change="filter()" placeholder="Keresés"/><br/><br />
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped tablesorter">
+                        <thead>
+                        <tr>
+                            <th>Vezetéknév <i class="fa fa-sort"></i></th>
+                            <th>Keresztnév <i class="fa fa-sort"></i></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="szemely in filtered = (szemelyek | filter:search) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+                            <td>{{szemely.csaladnev}}</td>
+                            <td>{{szemely.keresztnev}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <pagination data-boundary-links="true" data-num-pages="noOfPages" data-current-page="currentPage" max-size="maxSize" class="pagination-small" data-previous-text="&laquo;" data-next-text="&raquo;"></pagination>
+        </div>
+    </div>
+    </div>
+</div>

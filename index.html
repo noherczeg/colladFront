@@ -1,0 +1,100 @@
+<!doctype html>
+<!-- Our uiRouterSample module defined here -->
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+
+    <base href="http://localhost/colladgui/">
+
+    <!-- using twitter bootstrap, but of course -->
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.2/css/bootstrap.min.css">
+
+    <!-- Add custom CSS here -->
+    <link rel="stylesheet" href="app/css/sb-admin.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.1/css/font-awesome.min.css">
+    <!-- Page Specific CSS -->
+    <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+
+    <!-- could easily use a custom property of the state here instead of 'name' -->
+    <title ng-bind="$state.current.name + ' - Collad'">Collad</title>
+
+</head>
+<body>
+<div id="wrapper">
+
+<!-- Sidebar -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Collad</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav side-nav">
+            <li ng-class="{ active: $state.includes('esemenyek') }"><a ui-sref="esemenyek"><i class="fa fa-calendar-o fa-fw"></i> Események</a></li>
+            <li ng-class="{ active: $state.includes('szemelyek') }"><a ui-sref="szemelyek"><i class="fa fa-user fa-fw"></i> Személyek</a></li>
+            <li ng-class="{ active: $state.includes('publikaciok') }"><a ui-sref="publikaciok"><i class="fa fa-pencil fa-fw"></i> Publikációk</a></li>
+            <li ng-class="{ active: $state.includes('palyazatok') }"><a ui-sref="palyazatok"><i class="fa fa-edit fa-fw"></i> Pályázatok</a></li>
+            <li ng-class="{ active: $state.includes('tanulmanyutak') }"><a ui-sref="tanulmanyutak"><i class="fa fa-plane fa-fw"></i> Tanulmányutak</a></li>
+            <li ng-class="{ active: $state.includes('tdk') }"><a ui-sref="tdk"><i class="fa fa-book fa-fw"></i> TDK Dolgozatok</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-group fa-fw"></i> Szervezetek <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a ui-sref="tanszekek">Tanszékek</a></li>
+                    <li><a ui-sref="intezetek">Intézetek</a></li>
+                    <li><a ui-sref="intezmenyek">Intézmények</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right navbar-user">
+            <li class="dropdown user-dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b
+                        class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><i class="fa fa-user"></i> Profil</a></li>
+                    <li><a href="#"><i class="fa fa-gear"></i> Beállítások</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="fa fa-power-off"></i> Kilépés</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+</nav>
+
+<div id="page-wrapper" ui-view>
+
+</div>
+<!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Include both angular.js and angular-ui-router.js-->
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.0/angular-ui-router.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.6.0/ui-bootstrap-tpls.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+<!-- module.js declares the uiRouterSample module and adds items to $rootScope-->
+<script src="app/scripts/module.js"></script>
+<!-- factory.js defines a 'contacts' http service and a 'utils' global functions service -->
+<script src="app/scripts/factory.js"></script>
+<!-- state.js takes care of all the state configuration, where all the magic's at-->
+<script src="app/scripts/states.js"></script>
+<!-- filters.js does the filtering -->
+<script src="app/scripts/filters.js"></script>
+
+<script src="app/js/tablesorter/jquery.tablesorter.js"></script>
+<script src="app/js/tablesorter/tables.js"></script>
+</body>
+</html>
